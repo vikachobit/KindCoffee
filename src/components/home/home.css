@@ -1,0 +1,52 @@
+.header{
+    height: 29px;
+    width: 72px;
+    color: #232323;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.87px;
+    line-height: 29px;
+    text-align: center;
+    margin: 16px;
+}
+.oval{
+    display: flex;
+    box-sizing: border-box;
+    height: 150px;
+    width: 150px;
+    border: 1px solid rgba(151,151,151,0.1);
+    background-color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 15px;
+
+
+}
+a{
+    text-decoration: none;
+}
+
+.coffee{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+}
+.coffee-image{
+    display: flex;
+    justify-content: center;
+}
+.coffee-name{
+    height: 15px;
+    width: 70px;
+    color: #232323;
+    /*font-family: Montserrat, sans-serif;*/
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    text-align: center;
+    padding-top: 5px;
+
+}

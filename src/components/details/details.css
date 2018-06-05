@@ -1,0 +1,91 @@
+/*@font-face {*/
+    /*font-family: 'Montserrat', sans-serif;*/
+    /*src: url('https://fonts.googleapis.com/css?family=Montserrat:600');*/
+/*}*/
+.head{
+    height: 29px;
+    width: 72px;
+    color: #232323;
+    /*font-family:'Montserrat', sans-serif;*/
+    font-size: 24px;
+    /*font-weight: 600;*/
+    letter-spacing: -0.87px;
+    line-height: 29px;
+    text-align: center;
+    margin: 16px;
+}
+.details{
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto auto 35px;
+}
+.general{
+
+    /*font-family: 'Montserrat', sans-serif;*/
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+
+
+}
+th{
+    height: 18px;
+    width: 44px;
+    color: rgba(56,56,56,0.4);
+    font-size: 14px;
+    /*font-weight: 600;*/
+
+    text-align: left;
+
+}
+.col {
+
+    width: 50%;
+}
+tbody tr{
+
+    width: 144px;
+    color: #232323;
+    /*font-family: 'Montserrat', sans-serif;*/
+    font-size: 18px;
+    text-align: left;
+    box-shadow: 0 -1px 0 0 rgba(192,193,199,0.05);
+
+}
+tbody{
+    height: 48px;
+    width: 944px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+}
+
+th, td{
+    padding: 20px;
+    border: none;
+}
+
+input[type=text] {
+
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid rgba(56,56,56,0.4);
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 5px 20px 5px 20px;
+    -webkit-transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 80%;
+    padding: 10px 20px 10px 20px;
+}
+.options{
+    /*font-family:'Montserrat', sans-serif;*/
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto auto;
+
+}
+.sorting{
+    padding-top: 10px;
+}

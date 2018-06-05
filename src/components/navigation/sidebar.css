@@ -1,0 +1,80 @@
+.side-bar {
+
+    display: flex;
+    flex-direction: column;
+	height: 900px;
+    width: 48px;
+    background-color: #ffffff;
+    align-items: center;
+    z-index: 1;
+}
+.corner{
+    height: 48px;
+    width: 48px;
+    background-color: #504DD4;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+}
+.home {
+
+    height: 17px;
+    width: 20px;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+    margin-top: 19px;
+}
+.dashboard{
+    height: 18px;
+    width: 18px;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+    margin-top: 23px;
+}
+.statistic{
+    height: 12px;
+    width: 22px;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+    margin-top: 25px;
+}
+.bookmark{
+    height: 18px;
+    width: 14px;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+    margin-top: 25px;
+
+}
+.files{
+    height: 20px;
+    width: 16px;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+    margin-top: 21px;
+}
+.help{
+    height: 20px;
+    width: 20px;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+    margin-top: 20px;
+
+}
+.top-bar{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.logo{
+   margin-top: 15px;
+    height: 48px;
+
+}
+.icons-right{
+    position: absolute;
+    right: 20px;
+}
+
+.icons-right i{
+    margin-right: 30px;
+    color: #91A1DF;
+    font-size: 18px;
+
+}

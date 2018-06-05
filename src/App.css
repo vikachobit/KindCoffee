@@ -1,0 +1,20 @@
+
+/*@font-face {*/
+  /*font-family: 'Montserrat', sans-serif;*/
+  /*src: url('https://fonts.googleapis.com/css?family=Montserrat:600');*/
+/*}*/
+.App{
+  background-color: #F6F7FC;
+  /*font-family: 'Montserrat', sans-serif;*/
+}
+.todo-wrap{
+  display: flex;
+  flex-direction: row;
+
+}
+.content{
+
+  width: 100%;
+
+
+}

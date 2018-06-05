@@ -1,0 +1,22 @@
+.calendar{
+    position: absolute;
+    box-shadow: 1px 1px 81px rgba(41, 60, 74, 0.18);
+
+}
+.PreviewArea{
+
+    box-shadow: 1px 1px 81px rgba(41, 60, 74, 0.18);
+}
+.calendarButton{
+    height: 40px;
+    width: 224px;
+    border-radius: 8px;
+    background-color: #504DD4;
+    box-shadow: 0 4px 16px 0 rgba(87,89,159,0.05);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+}
