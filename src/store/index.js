@@ -4,14 +4,21 @@ import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 import rootReducer from '../reducers';
 
+import createSagaMiddleware from "redux-saga";
+import { watcherSaga } from "../sagas/index";
+
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
 export const history = createHistory();
 
-const initialState = {};
+const initialState = {
+};
 const enhancers = [];
 const middleware = [
     thunk,
-    routerMiddleware(history)
+    routerMiddleware(history),
+    sagaMiddleware
 ];
 
 if (process.env.NODE_ENV === 'development') {
@@ -32,4 +39,7 @@ const store = createStore(
     initialState,
     composedEnhancers
 );
+
+sagaMiddleware.run(watcherSaga);
+
 export default store

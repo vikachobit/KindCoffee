@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import store, {history} from './store';
 
+window.store = store;
 class App extends Component {
 
     render() {
