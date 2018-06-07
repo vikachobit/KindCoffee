@@ -4,15 +4,18 @@ import 'react-router';
 import CreateReport from "../create report/create report";
 import Calendar from "../calendar/calendar";
 import {addDays} from "date-fns";
+import {fetchProductDetails} from "../../actions";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
 
-export default class Details extends React.Component {
+class Details extends React.Component {
 
 
     constructor(props) {
         super(props);
 
-        this.state = {
+        /*this.state = {
             details: [],
             product: [],
             search: '',
@@ -35,22 +38,22 @@ export default class Details extends React.Component {
         };
         this.storeProduct = this.storeProduct.bind(this);
         this.getDataRange = this.getDataRange.bind(this, 'dateRangePicker');
-        this.filterByDate = this.filterByDate.bind(this);
+        this.filterByDate = this.filterByDate.bind(this);*/
 
     }
 
     getDataRange = (which, payload) => {
-
+/*
         this.setState({
                 [which]: {
                     ...this.state[which],
                     ...payload,
                 },
             }
-        );
+        );*/
     };
     filterByDate(details){
-
+/*
         let filteredWeeks = details.map((elem)=>{
 
             return elem.pricingDataByWeek.filter((item) =>{
@@ -61,10 +64,10 @@ export default class Details extends React.Component {
          });
 
         console.log(filteredWeeks);
-      this.setState({details: filteredWeeks})
+      this.setState({details: filteredWeeks})*/
     }
     storeProduct(data) {
-        console.log(data);
+      /*  console.log(data);
         let details = data.data;
         let product = data.product;
 
@@ -107,23 +110,27 @@ export default class Details extends React.Component {
             product: product,
             filteredItems: filteredItems,
             details: details,
-        })
+        })*/
     }
     getData() {
-        const id = this.props.match.url;
+      /*  const id = this.props.match.url;
         fetch(`http://159.89.106.160/products${id}`)
             .then(response => response.json())
-            .then(this.storeProduct);
+            .then(this.storeProduct);*/
 
     }
 
     componentDidMount() {
-        this.getData();
+      /*  this.getData();*/
+    }
+    componentWillMount() {
+        const id = this.props.match.url;
+        this.props.fetchProductDetails(id);
     }
 
 
     updateSearch(event) {
-        let direction = {
+/*        let direction = {
             name: '', max: '', min: '', avg: ''
         };
         let search = event.target.value.substr(0, 20);
@@ -131,7 +138,7 @@ export default class Details extends React.Component {
         this.setState({
             filteredItems: filteredItems,
             search: search,
-            direction: direction,});
+            direction: direction,});*/
     }
 
 
@@ -148,7 +155,7 @@ export default class Details extends React.Component {
     arrowUp = ' ⏶';
     arrowDown = ' ⏷';
     sortColumn = (n) => {
-        let rows = this.state.filteredItems.slice();
+    /*    let rows = this.state.filteredItems.slice();
 
         let direction = {
             name: '', max: '', min: '', avg: ''
@@ -227,18 +234,18 @@ export default class Details extends React.Component {
                 switchIndex: -1,
                 filteredItems: rows
             })
-        }
+        }*/
     };
 
 
     render() {
-        let direction = this.state.direction;
+      //  let direction = this.state.direction;
 
 
       // console.log(this.state.dateRangePicker);
         return (
             <div>
-                <h1 className='head'>{this.state.product.name}</h1>
+                <h1 className='head'>{/*{this.state.product.name}*/}</h1>
 
                 <table className='general'>
                     <colgroup>
@@ -253,12 +260,12 @@ export default class Details extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                   {/* <tr>
                         <td>{this.state.product.name}</td>
                         <td>{`$${Math.max(...this.state.maxItems).toFixed(2)}`}</td>
                         <td>{`$${this.state.avgItem}`}</td>
                         <td>{`$${Math.min(...this.state.minItems).toFixed(2)}`}</td>
-                    </tr>
+                    </tr>*/}
                     </tbody>
                 </table>
 
@@ -269,11 +276,11 @@ export default class Details extends React.Component {
                     <thead>
                     <tr>
                         <th>
-                            <input
+                            {/*<input
                                 type='text'
                                 placeholder="Search.."
                                 value={this.state.search}
-                                onChange={this.updateSearch.bind(this)}/>
+                                onChange={this.updateSearch.bind(this)}/>*/}
                         </th>
                         <th>
                            <Calendar
@@ -282,11 +289,11 @@ export default class Details extends React.Component {
                            />
                         </th>
                         <th>
-                            <CreateReport
+                            {/*<CreateReport
                                 product = {this.state.product}
                                 filteredItems = {this.state.filteredItems}
 
-                             />
+                             />*/}
                         </th>
                     </tr>
                     </thead>
@@ -297,7 +304,7 @@ export default class Details extends React.Component {
                         <col span="1" className="col"/>
                     </colgroup>
                     <thead className='sorting'>
-                    <tr>
+                    {/*<tr>
                         <th onClick={this.sortColumn.bind(this, 'name')}>
                             {`Name${direction.name}`}
                         </th>
@@ -310,11 +317,11 @@ export default class Details extends React.Component {
                         <th onClick={this.sortColumn.bind(this, 'min')}>
                             {`Min Price${direction.min}`}
                         </th>
-                    </tr>
+                    </tr>*/}
                     </thead>
                     <tbody>{
 
-                        this.state.filteredItems.map((el) => {
+                       /* this.state.filteredItems.map((el) => {
 
                             return (
                                 <tr key={el.id}>
@@ -324,7 +331,7 @@ export default class Details extends React.Component {
                                     <td>{`$${el.min}`}</td>
                                 </tr>
                             )
-                        })
+                        })*/
                     }
                     </tbody>
                 </table>
@@ -332,3 +339,15 @@ export default class Details extends React.Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        selected: state.products.selected,
+        error: state.products.errorDetails
+    }
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchProductDetails
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

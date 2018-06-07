@@ -12,8 +12,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const history = createHistory();
 
-const initialState = {
-};
+const initialState = {};
 const enhancers = [];
 const middleware = [
     thunk,
