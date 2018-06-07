@@ -79,7 +79,9 @@ export default class CreateReport extends React.Component {
                     style={customStyles}
                     contentLabel="Example Modal">
 
+{/*
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.product.name}</h2>
+*/}
                     <form>
 
                     </form>

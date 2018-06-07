@@ -155,7 +155,7 @@ class Details extends React.Component {
     arrowUp = ' ⏶';
     arrowDown = ' ⏷';
     sortColumn = (n) => {
-    /*    let rows = this.state.filteredItems.slice();
+        let rows = this.state.filteredItems.slice();
 
         let direction = {
             name: '', max: '', min: '', avg: ''
@@ -234,7 +234,7 @@ class Details extends React.Component {
                 switchIndex: -1,
                 filteredItems: rows
             })
-        }*/
+        }
     };
 
 
@@ -261,10 +261,23 @@ class Details extends React.Component {
                     </thead>
                     <tbody>
                     <tr>
-                        <td>{this.props.selected ? this.props.selected.product.name: ''}</td>
-                    {/*    <td>{`$${Math.max(...this.state.maxItems).toFixed(2)}`}</td>
-                        <td>{`$${this.state.avgItem}`}</td>
-                        <td>{`$${Math.min(...this.state.minItems).toFixed(2)}`}</td>*/}
+                        <td>{this.props.product ? this.props.product.name: ''}</td>
+                        {
+                            this.props.maxItems && this.props.avgItem && this.props.minItems ? (
+                                <td>{`$${Math.max(...this.props.maxItems).toFixed(2)}`}</td>
+                            ) : null}
+
+                        {
+
+                            this.props.maxItems && this.props.avgItem && this.props.minItems ? (
+                                <td>{`$${this.props.avgItem}`}</td>
+                            ):null
+                        }
+                        {
+                            this.props.maxItems && this.props.avgItem && this.props.minItems ? (
+                                <td>{`$${Math.min(...this.props.minItems).toFixed(2)}`}</td>
+                            ):null
+                        }
                     </tr>
                     </tbody>
                 </table>
@@ -276,11 +289,11 @@ class Details extends React.Component {
                     <thead>
                     <tr>
                         <th>
-                            {/*<input
+                            <input
                                 type='text'
                                 placeholder="Search.."
-                                value={this.state.search}
-                                onChange={this.updateSearch.bind(this)}/>*/}
+                               // value={this.state.search}
+                                onChange={this.updateSearch.bind(this)}/>
                         </th>
                         <th>
                            <Calendar
@@ -289,11 +302,11 @@ class Details extends React.Component {
                            />
                         </th>
                         <th>
-                            {/*<CreateReport
-                                product = {this.state.product}
-                                filteredItems = {this.state.filteredItems}
+                            <CreateReport
+                                product = {this.props.product}
+                                filteredItems = {this.props.filteredItems}
 
-                             />*/}
+                             />
                         </th>
                     </tr>
                     </thead>
@@ -343,7 +356,10 @@ const mapStateToProps = state => {
 return {
     filteredItems: state.products.filteredItems,
     product: state.products.selected,
-    direction: state.products.direction
+    direction: state.products.direction,
+    maxItems: state.products.maxItems,
+    avgItem: state.products.avgItem,
+    minItems: state.products.minItems
 }
 };
 
