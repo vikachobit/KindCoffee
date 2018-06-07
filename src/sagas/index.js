@@ -1,5 +1,10 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { fetchAllProductsSuccess, fetchAllProductsError, fetchProductDetails,fetchProductDetailsError } from "../actions/index";
+import {
+    fetchAllProductsSuccess,
+    fetchAllProductsError,
+    fetchProductDetailsError,
+    fetchProductDetailsSuccess
+} from "../actions/index";
 import { PRODUCTS_API_CALL_REQUEST, PRODUCT_DETAILS_API_CALL_REQUEST } from "../actions/action-types";
 import axios from "axios";
 
@@ -48,7 +53,7 @@ function* getProductDetails(action) {
         const productDetails = response.data;
         console.log(productDetails);
         // dispatch a success action to the store with the new dog
-        yield put(fetchAllProductsSuccess(productDetails));
+        yield put(fetchProductDetailsSuccess(productDetails));
 
     } catch (error) {
         // dispatch a failure action to the store with the error

@@ -239,13 +239,13 @@ class Details extends React.Component {
 
 
     render() {
-      //  let direction = this.state.direction;
+       let direction = this.props.direction;
 
 
       // console.log(this.state.dateRangePicker);
         return (
             <div>
-                <h1 className='head'>{/*{this.state.product.name}*/}</h1>
+                <h1 className='head'>{this.props.product ? this.props.product.name: null}</h1>
 
                 <table className='general'>
                     <colgroup>
@@ -260,12 +260,12 @@ class Details extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                   {/* <tr>
-                        <td>{this.state.product.name}</td>
-                        <td>{`$${Math.max(...this.state.maxItems).toFixed(2)}`}</td>
+                    <tr>
+                        <td>{this.props.selected ? this.props.selected.product.name: ''}</td>
+                    {/*    <td>{`$${Math.max(...this.state.maxItems).toFixed(2)}`}</td>
                         <td>{`$${this.state.avgItem}`}</td>
-                        <td>{`$${Math.min(...this.state.minItems).toFixed(2)}`}</td>
-                    </tr>*/}
+                        <td>{`$${Math.min(...this.state.minItems).toFixed(2)}`}</td>*/}
+                    </tr>
                     </tbody>
                 </table>
 
@@ -304,7 +304,7 @@ class Details extends React.Component {
                         <col span="1" className="col"/>
                     </colgroup>
                     <thead className='sorting'>
-                    {/*<tr>
+                    <tr>
                         <th onClick={this.sortColumn.bind(this, 'name')}>
                             {`Name${direction.name}`}
                         </th>
@@ -317,21 +317,21 @@ class Details extends React.Component {
                         <th onClick={this.sortColumn.bind(this, 'min')}>
                             {`Min Price${direction.min}`}
                         </th>
-                    </tr>*/}
+                    </tr>
                     </thead>
                     <tbody>{
+                        this.props.filteredItems ? (
+                            this.props.filteredItems.map((el) => {
 
-                       /* this.state.filteredItems.map((el) => {
-
-                            return (
-                                <tr key={el.id}>
-                                    <td>{el.name}</td>
-                                    <td>{`$${el.max}`}</td>
-                                    <td>{`$${el.avg}`}</td>
-                                    <td>{`$${el.min}`}</td>
-                                </tr>
-                            )
-                        })*/
+                                return (
+                                    <tr key={el.id}>
+                                        <td>{el.name}</td>
+                                        <td>{`$${el.max}`}</td>
+                                        <td>{`$${el.avg}`}</td>
+                                        <td>{`$${el.min}`}</td>
+                                    </tr>
+                                )
+                            })) : null
                     }
                     </tbody>
                 </table>
@@ -340,10 +340,11 @@ class Details extends React.Component {
     }
 }
 const mapStateToProps = state => {
-    return {
-        selected: state.products.selected,
-        error: state.products.errorDetails
-    }
+return {
+    filteredItems: state.products.filteredItems,
+    product: state.products.selected,
+    direction: state.products.direction
+}
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
